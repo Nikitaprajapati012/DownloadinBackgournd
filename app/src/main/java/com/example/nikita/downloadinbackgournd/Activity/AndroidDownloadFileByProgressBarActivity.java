@@ -93,6 +93,7 @@ public class AndroidDownloadFileByProgressBarActivity extends Activity {
                 inputStream = connection.getInputStream();
                 file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
                         .getAbsoluteFile() + "/" + Uri.parse(param[0]).getLastPathSegment());
+
                 fileOutputStream = new FileOutputStream(file);
                 Log.d("Path :- @@", file.getPath());  // Show PATH where image are store.
                 int read = -1;
@@ -122,7 +123,8 @@ public class AndroidDownloadFileByProgressBarActivity extends Activity {
         @Override
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
-            pDialog.setProgress((int) (((double) (values[0]) / contentLength) * 100));
+//            pDialog.setProgress((int) (((double) (values[0]) / contentLength) * 100));
+            pDialog.setProgress(values[0]);
         }
 
 
@@ -130,7 +132,7 @@ public class AndroidDownloadFileByProgressBarActivity extends Activity {
         protected void onPostExecute(Boolean aBoolean) {
             pDialog.dismiss();
             String imagePath = Environment.getExternalStoragePublicDirectory
-                    (Environment.DIRECTORY_PICTURES) + "/kitkat.png";
+                    (Environment.DIRECTORY_PICTURES) + "/trolltunga.jpg";
             Log.d("IMAGEPATH@@", "" + imagePath);
 //            my_image.setImageDrawable(Drawable.createFromPath(imagePath));
 
