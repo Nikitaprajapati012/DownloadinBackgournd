@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DownloadinBackgournd</string>
+    <string name="notification_no_memory">notification_no_memory</string>
+    <string name="notification_error">notification_error</string>
+</resources>
