@@ -43,8 +43,8 @@ public class AndroidDownloadFileByProgressBarActivity extends Activity {
     public ImageView my_image;
     private ProgressDialog pDialog;
     //    private static String file_url = "https://api.androidhive.info/progressdialog/hive.jpg";
-//    private static String file_url = "https://amazingslider.com/wp-content/uploads/2012/12/dandelion.jpg";
-    private static String file_url = "https://www.w3schools.com/css/trolltunga.jpg";
+    private static String file_url = "https://amazingslider.com/wp-content/uploads/2012/12/dandelion.jpg";
+//    private static String file_url = "https://www.w3schools.com/css/trolltunga.jpg";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -126,19 +126,14 @@ public class AndroidDownloadFileByProgressBarActivity extends Activity {
 //            pDialog.setProgress((int) (((double) (values[0]) / contentLength) * 100));
             pDialog.setProgress(values[0]);
         }
-
-
+        
         @Override
         protected void onPostExecute(Boolean aBoolean) {
             pDialog.dismiss();
-            String imagePath = Environment.getExternalStoragePublicDirectory
-                    (Environment.DIRECTORY_PICTURES) + "/trolltunga.jpg";
-            Log.d("IMAGEPATH@@", "" + imagePath);
-//            my_image.setImageDrawable(Drawable.createFromPath(imagePath));
-
-            File imgFile = new File(imagePath);
-            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-            my_image.setImageBitmap(myBitmap);
+            String imageLocation = Environment.getExternalStoragePublicDirectory
+                    (Environment.DIRECTORY_PICTURES) + "/dandelion.jpg";
+            Log.d("IMAGEPATH@@", "" + imageLocation);
+            my_image.setImageDrawable(Drawable.createFromPath(imageLocation));
         }
     }
 }
